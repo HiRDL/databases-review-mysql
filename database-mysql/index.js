@@ -9,8 +9,7 @@ const connection = new Sequelize('todo_list', 'root', '', {
 connection.authenticate()
   .then(() => console.log('successfully authenticated connected'))
   .catch(err => console.log('error authenticating connection'));
-
-
+  
 module.exports = {
   connection
 };

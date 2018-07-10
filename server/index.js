@@ -3,9 +3,6 @@ const path = require('path');
 const parser = require('body-parser');
 const helmet = require('helmet');
 
-require('../database-mysql');
-require('../database-mysql/models');
-
 const server = express();
 
 const port = 3000;
