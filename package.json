@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack -w",
     "start": "nodemon server",
+    "seed": "node database-mysql/bin/seedData.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,11 +28,15 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.2",
     "helmet": "^3.12.1",
+    "mongoose": "^5.2.2",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.3",
     "nodemon": "^1.14.12",
     "path": "^0.12.7",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
+    "sequelize": "^4.38.0",
     "webpack": "^3.10.0"
   }
 }

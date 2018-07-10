@@ -15,6 +15,10 @@ class TodoList extends React.Component {
   }
 
   componentDidMount() {
+    this.fetchTodos();
+  }
+
+  fetchTodos() {
     axios.get('/api/todolist', { params: { listName: this.state.listName } })
     .then(result => this.setState({todos: result.data}))
     .catch(err => console.error(err));
@@ -26,16 +30,16 @@ class TodoList extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { todo, todos } = this.state;
-    axios.post('/api/todolist', { todo, listName: this.state.listName })
+    const { todo, todos, listName } = this.state;
+    axios.post('/api/todolist', { todo, listName })
+    .then(result => this.setState({ todos: [...todos, result.data] }))
     .catch(err => console.log(err));
-    this.setState({ todos: [...todos, todo] });
     e.target.reset();
   }
 
-  deleteTodo(index) {
-    axios.delete('/api/todolist', { params: { index, listName: this.state.listName } })
-    .then(result => this.setState({ todos: result.data }))
+  deleteTodo(todo) {
+    axios.delete('/api/todolist', { params: { todo }})
+    .then(this.fetchTodos())
     .catch(err => console.log(err));
   }
 
