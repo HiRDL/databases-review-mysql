@@ -39,7 +39,7 @@ class TodoList extends React.Component {
 
   deleteTodo(todo) {
     axios.delete('/api/todolist', { params: { todo }})
-    .then(this.fetchTodos())
+    .then(() => this.fetchTodos())
     .catch(err => console.log(err));
   }
 

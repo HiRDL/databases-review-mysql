@@ -4,8 +4,7 @@ const parser = require('body-parser');
 const helmet = require('helmet');
 
 require('../database-mysql');
-const db = require('../database-mysql/models');
-// const db = require('../database-mongodb');
+require('../database-mysql/models');
 
 const server = express();
 

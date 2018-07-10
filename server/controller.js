@@ -2,7 +2,7 @@ const db = require('../database-mysql/models');
 
 module.exports = {
   fetch: (req, res) => {
-    // http://localhost:3000/api/todolist/?name=To+Do+List
+    // http://localhost:3000/api/todolist/?listName=To+Do+List
     const { listName } = req.query;
     db.todo.findAll({
       where: { list_name: listName }
@@ -27,8 +27,24 @@ module.exports = {
     db.todo.destroy({
       where: { name: todo }
     })
-    .then(todos => {
+    .then(() => {
       res.status(202).send('Entry deleted');
     })
   }
 }
+
+// module.exports = {
+//   fetch: (req, res) => {
+//     // http://localhost:3000/api/todolist/?name=To+Do+List
+//     const { listName } = req.query;
+//     res.status(200).send('fetched');
+//   },
+//   post: (req, res) => {
+//     const { todo, listName } = req.body;
+//     res.status(201).send('posted');
+//   },
+//   delete: (req, res) => {
+//     const { todo } = req.query;
+//     res.status(202).send('deleted');
+//   }
+// }
