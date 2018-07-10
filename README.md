@@ -1,6 +1,6 @@
 # node-review
 
-This node review will focus on creating a simple todo list.
+This database review will focus on creating a simple todo list and persisting the data in a MySQL database using Sequelize.
 
 ## Get Started
 
