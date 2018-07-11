@@ -10,6 +10,9 @@ module.exports = {
     .then(todos => {
       if (todos) { res.status(200).send(todos) }
       else { res.status(404).send('List not found'); }
+    })
+    .catch(err => {
+      res.status(404).send(err)
     });
   },
   post: (req, res) => {
@@ -20,6 +23,9 @@ module.exports = {
     })
     .then(todo => {
       res.status(201).send(todo);
+    })
+    .catch(err => {
+      res.status(404).send(err)
     });
   },
   delete: (req, res) => {
@@ -30,5 +36,8 @@ module.exports = {
     .then(() => {
       res.status(202).send('Entry deleted');
     })
+    .catch(err => {
+      res.status(404).send(err)
+    });
   }
 }

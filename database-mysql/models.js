@@ -21,6 +21,8 @@ const todo = connection.define('todo', {
 }, { timestamps: false });
 
 connection.sync({ force: false })
+//true will drop the table if it exists and replace it so
+//setting it to false will avoid this
   .then(() => console.log('successfully synced database'))
   .catch(err => console.log('error syncing database ', err));
 
