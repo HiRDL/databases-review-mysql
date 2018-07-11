@@ -1,4 +1,4 @@
-# node-review
+# databases-review-mysql
 
 This database review will focus on creating a simple todo list and persisting the data in a MySQL database using Sequelize.
 
